@@ -4,7 +4,8 @@ $('#subbtn').click(function(){
     var course_id =$("#uniqueid").val()
     var course_tag = $("#tag :selected").text()
     var curriculam = $("#oldcurriculum").is(':checked');
-    // alert(course_name+course_id+course_tag+curriculam);
+    alert(course_name+course_id+course_tag+curriculam);
+    // console.log(course_name);
     
 
     let data = new FormData()
@@ -18,27 +19,21 @@ $('#subbtn').click(function(){
     data.append('csrfmiddlewiretoken',"{{ csrf_token }}");
     // console.log(data.get(""))
 
-    $.ajax({
-          url: 'course_creation_script',
-          method: "POST",
-          processData: false,
-          contentType: false,
-          MimeType:"multipart/form-data",
-          // data:{
-          //   'name':course_name,
-          //   'couse_unique_id':course_id,
-          //   'tag':course_tag,
-          //   'curriculam':curriculam
-          // },
-          data:data,
+    // $.ajax({
+    //       url: 'course_creation_script',
+    //       method: "POST",
+    //       processData: false,
+    //       contentType: false,
+    //       MimeType:"multipart/form-data",
+    //       data:data,
 
-          success: function(res){
-            console.log(res)
-          },
-          error: function(status,error){
-            console.log(error)
-          }
-        })
+    //       success: function(res){
+    //         console.log(res)
+    //       },
+    //       error: function(status,error){
+    //         console.log(error)
+    //       }
+    //     })
 
   }
   )
