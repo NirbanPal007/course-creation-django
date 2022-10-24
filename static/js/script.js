@@ -15,8 +15,8 @@ $('#subbtn').click(function(){
     data.append('subject_file',$('input[id^="subfile"]')[0].files[0]);
     data.append('module_file',$('input[id^="modulefile"]')[0].files[0]);
     data.append('topic_file',$('input[id^="topicfile"]')[0].files[0]);
-    data.append('csrfmiddlewiretoken',"{{ csrf_token }}");
-    // console.log(data.get(""))
+    // data.append('csrfmiddlewiretoken',"{{ csrf_token }}");
+    console.log(data.get("subject_file"))
 
     $.ajax({
           url: 'course_creation_script',

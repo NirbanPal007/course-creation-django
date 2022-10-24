@@ -8,7 +8,7 @@ def index(request):
     return render(request,'index.html')
 
 
-# @csrf_exempt
+@csrf_exempt
 def course_creation_script(request):
 
 
@@ -20,6 +20,14 @@ def course_creation_script(request):
     module_file = request.FILES.get("module_file")
     topic_file = request.FILES.get("topic_file")
     print(coursename)
+    print(course_unique_id)
+    print(tag)
+    print(is_old_curriculam)
+    print(subject_file)
+    print(module_file)
+    print(topic_file)
+
+
 
     # fss = FileSystemStorage()
     # sub_file = fss.save(subject_file.name,subject_file)

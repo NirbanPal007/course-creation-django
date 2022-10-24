@@ -14,10 +14,25 @@
   <link rel="stylesheet" href="{%static 'css/style.css' %}">
   <link rel="stylesheet" href="{%static 'css/bootstrap.404e2a97cc5c.css' %}" type="text/css" media="all" />
   <link rel="stylesheet" href="{%static 'css/custom.86cdb688a03d.css' %}" media="all" />
+ 
 </head>
 <style>
-  .b-img{
-    background: url('{%static 'background.webp'%}') no-repeat fixed center;
+  .b-img {
+    background: url('{%static 'background.webp' %}') no-repeat fixed center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-size: cover;
+    max-width: 100%;
+  }
+
+  .formbg {
+    padding: 2%;
+    background-color: whitesmoke;
+    border-radius: 8px;
   }
 </style>
 
@@ -39,67 +54,70 @@
     </div>
   </header>
   <div class="container-fluid px-5 b-img">
-    <h3 class="text-center mb-3">Create New Course</h3>
-    <form action="" method="" enctype="multipart/form-data"  width: 100%; padding: 0 17% >
-      {% csrf_token %}
-      <div class="form-group row">
-        <label for="name" class="col-sm-2 col-form-label">Course Name</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control shadow-sm" id="cname" placeholder="Enter course name">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="uniqueid" class="col-sm-2 col-form-label">Course Unique ID</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control shadow-sm" id="uniqueid" placeholder="Enter course unique id">
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <label for="tag" class="col-sm-2 col-form-label">Course Tag</label>
-        <div class="col-sm-10">
-          <select id="tag" class="form-control shadow-sm">
-            <option selected>Choose...</option>
-            <option>Pro</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="subfile" class="col-sm-2 col-form-label">Subject file</label>
-        <div class="col-sm-10">
-          <input type="file" class="form-control shadow-sm" id="subfile">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="modulefile" class="col-sm-2 col-form-label">Module file</label>
-        <div class="col-sm-10">
-          <input type="file" class="form-control shadow-sm" id="modulefile">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="topicfile" class="col-sm-2 col-form-label">Topic file</label>
-        <div class="col-sm-10">
-          <input type="file" class="form-control shadow-sm" id="topicfile">
-        </div>
-      </div>
-      <div class="form-group row px-1">
-
-        <div class="col-sm-10">
-          <div class="col-sm-2">
-            <input type="checkbox" class="form-check-input my-1 shadow-sm" id="oldcurriculum">
+    <div class="formbg">
+      <h3 class="text-center mb-3">Create New Course</h3>
+      <form action="" method="" enctype="multipart/form-data" width: 100%; padding: 0 17%>
+        {% csrf_token %}
+        <div class="form-group row">
+          <label for="name" class="col-sm-3 col-form-label">Course Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control shadow-sm" id="cname" placeholder="Enter course name">
           </div>
-
-          <label class="form-check-label px-0 mx-3" for="oldcurriculum">Is Old Curriculum</label>
-
         </div>
-      </div>
-      <div class="form-group d-flex justify-content-center">
-        <a href="/course_creation_script">
-        
+        <div class="form-group row">
+          <label for="uniqueid" class="col-sm-3 col-form-label">Course Unique ID</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control shadow-sm" id="uniqueid" placeholder="Enter course unique id">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="tag" class="col-sm-3 col-form-label">Course Tag</label>
+          <div class="col-sm-9">
+            <select id="tag" class="form-control shadow-sm">
+              <option selected>Choose...</option>
+              <option>Pro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="subfile" class="col-sm-3 col-form-label">Subject file</label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control shadow-sm" id="subfile">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="modulefile" class="col-sm-3 col-form-label">Module file</label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control shadow-sm" id="modulefile">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="topicfile" class="col-sm-3 col-form-label">Topic file</label>
+          <div class="col-sm-9">
+            <input type="file" class="form-control shadow-sm" id="topicfile">
+          </div>
+        </div>
+        <div class="form-group row px-1">
+
+          <div class="col-sm-9">
+            <div class="col-sm-3">
+              <input type="checkbox" class="form-check-input my-1 shadow-sm" id="oldcurriculum">
+            </div>
+
+            <label class="form-check-label px-0 mx-3" for="oldcurriculum">Is Old Curriculum</label>
+
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <a href="/">
+
           <button type="button" id="subbtn" class="btn btn-primary shadow-sm">Submit</button>
-        </a>
-      </div>
-    </form>
+          </a>
+        </div>
+      </form>
+    </div>
+
   </div>
 
 
@@ -116,8 +134,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">  
-  <script src="{% static 'js/script.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="{% static 'js/script.js' %}"></script>
+
 </body>
 
 </html>
