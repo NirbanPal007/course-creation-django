@@ -8,10 +8,8 @@ def index(request):
     return render(request,'index.html')
 
 
-# @csrf_exempt
+@csrf_exempt
 def course_creation_script(request):
-
-
     coursename = request.POST.get("name")
     course_unique_id = request.POST.get("course_unique_id")
     tag = request.POST.get("tag")
@@ -20,18 +18,28 @@ def course_creation_script(request):
     module_file = request.FILES.get("module_file")
     topic_file = request.FILES.get("topic_file")
     print(coursename)
+    print(course_unique_id)
+    print(tag)
+    print(is_old_curriculam)
+    print(subject_file)
+    print(module_file)
+    print(topic_file)
 
-    # fss = FileSystemStorage()
-    # sub_file = fss.save(subject_file.name,subject_file)
-    # url= fss.url(sub_file)
-    # mod_file = fss.save(module_file.name,module_file)
-    # url= fss.url(mod_file)
-    # top_file = fss.save(topic_file.name,topic_file)
-    # url= fss.url(top_file)
+
+    fss = FileSystemStorage()
+    sub_file = fss.save(subject_file.name,subject_file)
+    sub_file_url= fss.url(sub_file)
+    mod_file = fss.save(module_file.name,module_file)
+    mod_file_url= fss.url(mod_file)
+    top_file = fss.save(topic_file.name,topic_file)
+    top_file_url= fss.url(top_file)
+    print(sub_file_url)
+    print(mod_file_url)
+    print(top_file_url)
  
 
-    # a = CourseForm(name=coursename,couse_unique_id=couse_unique_id,tag=tag,is_old_curriculam=is_old_curriculam)
+    # a = CourseForm(name=coursename,couse_unique_id=course_unique_id,tag=tag,is_old_curriculam=is_old_curriculam,subject_file=sub_file_url,module_file=mod_file_url,topic_file=top_file_url)
     # a.save()
-    # CourseForm.objects.create(name=coursename,couse_unique_id=course_unique_id,tag=tag,is_old_curriculam=is_old_curriculam,subject_file=subject_file,module_file=module_file,topic_file=topic_file)
+    # CourseForm.objects.create(name=coursename,couse_unique_id=course_unique_id,tag=tag,is_old_curriculam=is_old_curriculam,subject_file=sub_file_url,module_file=mod_file_url,topic_file=top_file_url)
     # return redirect(index)
     return render(request,'index.html')
